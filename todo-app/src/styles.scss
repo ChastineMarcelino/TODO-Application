@@ -1,1 +1,218 @@
-/* You can add global styles to this file, and also import other style files */
+  @use '@angular/material' as mat;
+
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+  .todo-container {
+    max-width: 400px;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    background-color: #f0f4f8;
+    position: fixed;
+    margin-left: 35%;
+  }
+
+  .title {
+    font-size: 1.75rem;
+    font-weight: bold;
+    text-align: center;
+    margin-top: -10px;
+    margin-bottom: -10px;
+  }
+
+  .completed-title {
+    font-size: 1.25rem;
+    color: #16a34a;
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+
+  .divider {
+    border: none;
+    height: 1px;
+    background: #ccc;
+    margin: 1rem 0;
+  }
+
+  .form-row {
+    display: flex;
+    gap: 10px;
+  }
+
+  .input {
+    flex: 1;
+    border: 1px solid #ccc;
+    padding: 10px 12px;
+    border-radius: 6px;
+  }
+
+  button[type="submit"] {
+    background-color: #6366F1; // or change to any color above
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+
+  button[type="submit"]:hover {
+    background-color: #2563EB; // slightly darker for hover
+  }
+
+  .task-container,
+  .complete-container {
+    max-height: 250px; /* or 220px for complete-container */
+    overflow-y: auto;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none;  /* IE 10+ */
+  }
+
+  .task-container::-webkit-scrollbar,
+  .complete-container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari and Opera */
+  }
+
+  .task-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    background-color: #f9fafb;
+  }
+
+  .task-box.completed {
+    background-color: #dcfce7;
+  }
+
+  .task-text {
+    flex: 1;
+    margin-right: 10px;
+    word-break: break-word;
+  }
+  .task-box:hover {
+    background-color: #e2e8f0;
+    transition: background-color 0.3s ease;
+  }
+
+
+  .completed-text {
+    text-decoration: line-through;
+    color: #4d7c0f;
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .text-red-600{
+      color: #dc2626;
+  }
+  .text-green-600{
+      color: #16a34a;
+  }
+  .circle-check {
+    width: 15px;
+    height: 15px;
+    border: 2px solid #16a34a;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+
+    &::after {
+      content: '✔';
+      display: none;
+      font-size: 12px;
+      color: white;
+      background-color: #16a34a;
+      border-radius: 50%;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      line-height: 18px;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    &.checked::after {
+      display: block;
+    }
+  }
+ body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+
+  .todo-container {
+    background-color: #1e1e1e;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  input,
+  .task-container,
+  .complete-container {
+    background-color: #2c2c2c;
+    color: white;
+    border: 1px solid #444;
+  }
+
+  .task-box {
+    background-color: #333;
+    border-color: #444;
+  }
+
+  .task-box:hover {
+    background-color: #3a3a3a;
+  }
+
+  .completed-task {
+    background-color: #1f5d1f;
+  }
+
+ .theme-switch .icon {
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: transform 0.3s ease;
+}
+.theme-switch .icon:hover {
+  transform: scale(1.2);
+}
+}
+
+  .theme-switch {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    .icon {
+      position: absolute;
+      right: -5px;
+      top: -5px;
+      font-size: 20px;
+      transition: color 0.3s ease;
+    }
+  }
+
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 28px;
+  }
+
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  
